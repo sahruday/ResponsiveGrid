@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Responsive Grid"
 include ':app'
+include ':GridConfiguration'
