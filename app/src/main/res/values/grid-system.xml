@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="layout_columns">4</integer>
+    <dimen name="layout_horizontal_margin">16dp</dimen>
+    <dimen name="layout_gutter_width">16dp</dimen>
+</resources>
