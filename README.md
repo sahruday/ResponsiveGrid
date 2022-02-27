@@ -17,4 +17,4 @@ Checkout [Breakpoint system](https://material.io/archive/guidelines/layout/respo
 #### Note: Margin and Gutter need not be equal.
 
 # Application using Responsive Grid
-![Responsive Grid](https://user-images.githubusercontent.com/25269643/155880111-f4f7596d-5f56-4824-b926-23415b571045.gif)
+![Responsive Grid](https://user-images.githubusercontent.com/25269643/155881727-9058eede-2352-4d3f-bebd-7a2081c89f6a.gif)
