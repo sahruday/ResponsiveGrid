@@ -24,9 +24,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.unit.dp
 import com.sahu.gridconfiguration.LocalGridConfiguration
 import com.sahu.gridconfiguration.columnedWidth
+import com.sahu.panes.CenteredPane
+import com.sahu.panes.PaneConfig
 import com.sahu.panes.TwoPane
 import com.sahu.responsivegrid.gridsystem.ResponsiveGridOverlay
 import com.sahu.responsivegrid.gridsystem.rememberGridConfiguration
@@ -38,10 +41,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             ResponsiveGridTheme {
                 CompositionLocalProvider(LocalGridConfiguration provides rememberGridConfiguration()) {
-                    TwoPane(
-                        left = { BarsGridContent() },
-                        right = { BarsGridContent() }
-                    )
+                    CenteredPane(
+                        centerPaneConfig = PaneConfig(integerResource(id = R.integer.center_layout_columns))
+                    ) {
+                        BarsGridContent()
+                    }
+//                    TwoPane(
+//                        left = { BarsGridContent() },
+//                        right = { BarsGridContent() }
+//                    )
 //                    BarsGridContent()
                 }
             }
