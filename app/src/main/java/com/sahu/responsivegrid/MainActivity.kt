@@ -53,6 +53,7 @@ class MainActivity : ComponentActivity() {
 fun BarsGridContent() {
     var showOverLay by remember { mutableStateOf(false) }
     val gridConfiguration = LocalGridConfiguration.current
+
     ResponsiveGridOverlay(showOverLay) {
         Surface(color = MaterialTheme.colors.background) {
             Column {
@@ -60,7 +61,7 @@ fun BarsGridContent() {
                     Checkbox(checked = showOverLay, onCheckedChange = { showOverLay = !showOverLay })
                     Text(text = "Show Grid Overlay", style = MaterialTheme.typography.h6)
                 }
-                Text(text = "Width:${gridConfiguration.layoutWidth}\tMargin:${gridConfiguration.horizontalMargin}\tGutter:${gridConfiguration.gutterWidth}" )
+                Text(text = "Width:${gridConfiguration.layoutWidth}\tMargin:${gridConfiguration.horizontalMargin}\tGutter:${gridConfiguration.gutterWidth}")
                 GridColumns(modifier = Modifier.padding(horizontal = gridConfiguration.horizontalMargin))
             }
         }
