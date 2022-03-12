@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sahu.gridconfiguration.LocalGridConfiguration
 import com.sahu.gridconfiguration.columnedWidth
+import com.sahu.panes.TwoPane
 import com.sahu.responsivegrid.gridsystem.ResponsiveGridOverlay
 import com.sahu.responsivegrid.gridsystem.rememberGridConfiguration
 import com.sahu.responsivegrid.ui.theme.ResponsiveGridTheme
@@ -36,21 +37,32 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ResponsiveGridTheme {
-                var showOverLay by remember { mutableStateOf(false)}
-
                 CompositionLocalProvider(LocalGridConfiguration provides rememberGridConfiguration()) {
-                    ResponsiveGridOverlay(showOverLay) {
-                        Surface(color = MaterialTheme.colors.background) {
-                            Column {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Checkbox(checked = showOverLay, onCheckedChange = { showOverLay = !showOverLay })
-                                    Text(text = "Show Grid Overlay", style = MaterialTheme.typography.h6)
-                                }
-                                GridColumns(modifier = Modifier.padding(horizontal = LocalGridConfiguration.current.horizontalMargin))
-                            }
-                        }
-                    }
+                    TwoPane(
+                        left = { BarsGridContent() },
+                        right = { BarsGridContent() }
+                    )
+//                    BarsGridContent()
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun BarsGridContent() {
+    var showOverLay by remember { mutableStateOf(false) }
+    val gridConfiguration = LocalGridConfiguration.current
+
+    ResponsiveGridOverlay(showOverLay) {
+        Surface(color = MaterialTheme.colors.background) {
+            Column {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(checked = showOverLay, onCheckedChange = { showOverLay = !showOverLay })
+                    Text(text = "Show Grid Overlay", style = MaterialTheme.typography.h6)
+                }
+                Text(text = "Width:${gridConfiguration.layoutWidth}\tMargin:${gridConfiguration.horizontalMargin}\tGutter:${gridConfiguration.gutterWidth}")
+                GridColumns(modifier = Modifier.padding(horizontal = gridConfiguration.horizontalMargin))
             }
         }
     }
