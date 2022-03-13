@@ -18,3 +18,11 @@ Checkout [Breakpoint system](https://material.io/archive/guidelines/layout/respo
 
 # Application using Responsive Grid
 ![Responsive Grid](https://user-images.githubusercontent.com/25269643/155881727-9058eede-2352-4d3f-bebd-7a2081c89f6a.gif)
+
+# Application using Centered Pane
+![CenterPane](https://user-images.githubusercontent.com/25269643/158062167-279dfaf5-f0a3-4920-bc8a-ee285ec8e398.gif)
+
+# Application using Tablet Pane
+<img width="1000" alt="Screenshot 2022-03-13 at 7 28 43 PM" src="https://user-images.githubusercontent.com/25269643/158063021-e15f34d4-c088-47b4-95bb-31e51435b9cf.png">
+
+**NOTE: Left pane will have less width by gutter width.**
